@@ -17,5 +17,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+
       - uses: leanprover/lean-action@v1
+
+      # build docs but do NOT let docgen-action deploy/upload artifacts
       - uses: leanprover-community/docgen-action@v1
+        with:
+          deploy: 'false'     # prevent automatic upload/deploy by docgen-action
+          # you can pass other inputs you currently rely on here
+
+      # Upload the docs with a unique artifact name
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-artifact
+          path: docs           # adjust if your docgen output is elsewhere
+
+      # Deploy that explicit artifact to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+        with:
+          artifact: site-artifact
