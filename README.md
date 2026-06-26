@@ -3,6 +3,10 @@
 Formalization of the **classification of groups of order \(p^3\)** in Lean 4,
 using [mathlib4](https://github.com/leanprover-community/mathlib4).
 
+## Paper
+
+A summary paper: `Classifying the Groups of Order p^3 in Lean`, can be seen in [arxiv:2606.26141](https://arxiv.org/abs/2606.26141).
+
 ## Main result
 
 Every finite group of order \(p^3\) (where \(p\) is prime) is isomorphic to one
